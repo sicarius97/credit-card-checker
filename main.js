@@ -23,10 +23,32 @@ const mystery5 = [4, 9, 1, 3, 5, 4, 0, 4, 6, 3, 0, 7, 2, 5, 2, 3]
 const batch = [valid1, valid2, valid3, valid4, valid5, invalid1, invalid2, invalid3, invalid4, invalid5, mystery1, mystery2, mystery3, mystery4, mystery5]
 
 
-// Add your functions below:
+// Function Declarations
 
+// validateCred() takes in a credit card num array and uses luhn's (mod10) algorithm to validate number
+function validateCred(arr){
+    backArr = arr.reverse()
+    backArr.forEach(function(i){
+        if (i % 2 === 1){
+            let tmp = backArr[i] * 2
+            if (tmp > 9){
+                tmp -= 9
+            }
+            backArr[i] = tmp
+        }
+    })
+    return backArr
+}
 
+// findInvalidCards() takes in a nested array of individual card numbers and returns nested array of invalids
+function findInvalidCards(nested_arr){
 
+}
+
+// idInvalidCardCompanies() takes in nested array of invalid card numbers and returns array of issuers
+function idInvalidCardCompanies(nested_arr){
+
+}
 
 
 
