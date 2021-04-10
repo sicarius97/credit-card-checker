@@ -26,27 +26,48 @@ const batch = [valid1, valid2, valid3, valid4, valid5, invalid1, invalid2, inval
 // Function Declarations
 
 // validateCred() takes in a credit card num array and uses luhn's (mod10) algorithm to validate number
-function validateCred(arr){
+/*function validateCred(arr){
     backArr = arr.reverse()
     backArr.forEach(function(i){
         if (i % 2 === 1){
             let tmp = backArr[i] * 2
-            if (tmp > 9){
+            if (tmp >= 10){
                 tmp -= 9
+                backArr[i] = tmp
+            } else {
+                backArr[i] = tmp
             }
-            backArr[i] = tmp
-        }
+            
+        } 
     })
-    return backArr
-}
+    let newArr = backArr.reverse()
+    let calcTotal = 0
+    newArr.forEach(function(i){
+        calcTotal += newArr[i]
+    })
+    
+    return true
+}*/
+
 
 // findInvalidCards() takes in a nested array of individual card numbers and returns nested array of invalids
-function findInvalidCards(nested_arr){
-
+function findInvalidCards(nestedArr){
+    let invalidCards = []
+    
+    for (i=0;i < nestedArr.length;i++){
+        let arrIter = nestedArr[i]
+        if ((validateCred(arrIter))){
+            invalidCards.push(arrIter)
+        } else {
+            continue
+        }
+    }
+    return invalidCards
 }
 
+
 // idInvalidCardCompanies() takes in nested array of invalid card numbers and returns array of issuers
-function idInvalidCardCompanies(nested_arr){
+function idInvalidCardCompanies(nestedArr){
 
 }
 
