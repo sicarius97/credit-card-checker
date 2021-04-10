@@ -26,8 +26,8 @@ const batch = [valid1, valid2, valid3, valid4, valid5, invalid1, invalid2, inval
 // Function Declarations
 
 // validateCred() takes in a credit card num array and uses luhn's (mod10) algorithm to validate number
-/*function validateCred(arr){
-    backArr = arr.reverse()
+function validateCred(arr){
+    /*backArr = arr.reverse()
     backArr.forEach(function(i){
         if (i % 2 === 1){
             let tmp = backArr[i] * 2
@@ -44,10 +44,10 @@ const batch = [valid1, valid2, valid3, valid4, valid5, invalid1, invalid2, inval
     let calcTotal = 0
     newArr.forEach(function(i){
         calcTotal += newArr[i]
-    })
+    })*/
     
     return true
-}*/
+}
 
 
 // findInvalidCards() takes in a nested array of individual card numbers and returns nested array of invalids
@@ -68,8 +68,39 @@ function findInvalidCards(nestedArr){
 
 // idInvalidCardCompanies() takes in nested array of invalid card numbers and returns array of issuers
 function idInvalidCardCompanies(nestedArr){
+    let compArr = []
+    
+    for (i=0;i < nestedArr.length;i++){
+        let tmpComp = ''
+        let tmpNum = nestedArr[i][0]
+        switch (tmpNum){
+            case 3:
+                tmpComp = 'Amex'
+                break
+            case 4:
+                tmpComp = 'Visa'
+                break
+            case 5:
+                tmpComp = 'Mastercard'
+                break
+            case 6:
+                tmpComp = 'Discover'
+                break
+            default:
+                console.log('Company not found')
 
+
+        }
+        if (!(compArr.includes(tmpComp))){
+            compArr.push(tmpComp)
+        } else {
+            continue
+        }
+    }
+    return compArr
+    
 }
+
 
 
 
