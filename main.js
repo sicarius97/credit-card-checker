@@ -27,7 +27,6 @@ const batch = [valid1, valid2, valid3, valid4, valid5, invalid1, invalid2, inval
 
 // validateCred() takes in a credit card num array and uses luhn's (mod10) algorithm to validate number
 function validateCred(arr){
-<<<<<<< HEAD
     backArr = arr.reverse()
     for (let i=0; i < backArr.length; i++){
         let tmp = undefined
@@ -61,90 +60,18 @@ function findInvalidCards(nestedArr){
     for (i=0; i < nestedArr.length;i++){
        if (!validateCred(nestedArr[i])){
             newArr
-=======
-    /*backArr = arr.reverse()
-    backArr.forEach(function(i){
-        if (i % 2 === 1){
-            let tmp = backArr[i] * 2
-            if (tmp >= 10){
-                tmp -= 9
-                backArr[i] = tmp
-            } else {
-                backArr[i] = tmp
-            }
-            
-        } 
-    })
-    let newArr = backArr.reverse()
-    let calcTotal = 0
-    newArr.forEach(function(i){
-        calcTotal += newArr[i]
-    })*/
-    
-    return true
-}
-
-
-// findInvalidCards() takes in a nested array of individual card numbers and returns nested array of invalids
-function findInvalidCards(nestedArr){
-    let invalidCards = []
-    
-    for (i=0;i < nestedArr.length;i++){
-        let arrIter = nestedArr[i]
-        if ((validateCred(arrIter))){
-            invalidCards.push(arrIter)
->>>>>>> c846092a484116e9d6c1097a4f5898726045e47a
         } else {
             continue
         }
     }
-<<<<<<< HEAD
     return newArr
-=======
-    return invalidCards
->>>>>>> c846092a484116e9d6c1097a4f5898726045e47a
 }
 console.log(findInvalidCards(batch))
 
-
 // idInvalidCardCompanies() takes in nested array of invalid card numbers and returns array of issuers
 function idInvalidCardCompanies(nestedArr){
-<<<<<<< HEAD
-=======
-    let compArr = []
-    
-    for (i=0;i < nestedArr.length;i++){
-        let tmpComp = ''
-        let tmpNum = nestedArr[i][0]
-        switch (tmpNum){
-            case 3:
-                tmpComp = 'Amex'
-                break
-            case 4:
-                tmpComp = 'Visa'
-                break
-            case 5:
-                tmpComp = 'Mastercard'
-                break
-            case 6:
-                tmpComp = 'Discover'
-                break
-            default:
-                console.log('Company not found')
->>>>>>> c846092a484116e9d6c1097a4f5898726045e47a
 
-
-        }
-        if (!(compArr.includes(tmpComp))){
-            compArr.push(tmpComp)
-        } else {
-            continue
-        }
-    }
-    return compArr
-    
 }
-
 
 
 
