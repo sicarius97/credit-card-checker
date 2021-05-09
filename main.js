@@ -70,6 +70,37 @@ console.log(findInvalidCards(batch))
 
 // idInvalidCardCompanies() takes in nested array of invalid card numbers and returns array of issuers
 function idInvalidCardCompanies(nestedArr){
+    
+    let compArr = []
+
+    for (i=0;i < nestedArr.length;i++){
+        let tmpComp = ''
+        let tmpNum = nestedArr[i][0]
+        switch (tmpNum){
+            case 3:
+                tmpComp = 'Amex'
+                break
+            case 4:
+                tmpComp = 'Visa'
+                break
+            case 5:
+                tmpComp = 'Mastercard'
+                break
+            case 6:
+                tmpComp = 'Discover'
+                break
+            default:
+                console.log('Company not found')
+        }
+        
+        if (!(compArr.includes(tmpComp))){
+            compArr.push(tmpComp)
+        } else {
+            continue
+        }
+    }
+    
+    return compArr
 
 }
 
